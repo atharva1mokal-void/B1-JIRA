@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Man Quotes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: #1f2833;
+            border: 2px solid #c5a059;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #861657;
+            margin-bottom: 20px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .quote-box {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        blockquote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #edf5e1;
+            line-height: 1.4;
+        }
+
+        button {
+            background: linear-gradient(135deg, #a71d31, #861657);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #c5a059, #a71d31);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="img-container">
+            <img id="ironman-img" src="" alt="Iron Man">
+        </div>
+        <div class="quote-box">
+            <blockquote id="ironman-quote"></blockquote>
+        </div>
+        <button onclick="generateQuote()">I Am Iron Man</button>
+    </div>
+
+    <script>
+        const ironManData = [
+            {
+                quote: "I am Iron Man.",
+                img: "https://images.unsplash.com/photo-1635863138275-d9b33299680b?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                quote: "If we can't accept a limitation, we're no better than the bad guys.",
+                img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                quote: "Sometimes you gotta run before you can walk.",
+                img: "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                quote: "I love you 3000.",
+                img: "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                quote: "Part of the journey is the end.",
+                img: "https://images.unsplash.com/photo-1635863138275-d9b33299680b?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                quote: "Genius, billionaire, playboy, philanthropist.",
+                img: "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * ironManData.length);
+            const selected = ironManData[randomIndex];
+
+            const imgElement = document.getElementById('ironman-img');
+            const quoteElement = document.getElementById('ironman-quote');
+
+            imgElement.style.opacity = 0;
+
+            setTimeout(() => {
+                imgElement.src = selected.img;
+                quoteElement.textContent = `"${selected.quote}"`;
+                imgElement.style.opacity = 1;
+            }, 150);
+        }
+
+        // Load an initial quote on page launch
+        window.onload = generateQuote;
+    </script>
+</body>
+</html>
