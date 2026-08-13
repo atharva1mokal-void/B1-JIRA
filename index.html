@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Gallery</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        /* Responsive Grid Layout */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Meme Card Design */
+        .meme-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        .meme-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .meme-caption {
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🔥 Trending Memes</h1>
+    </header>
+
+    <main class="gallery">
+        <!-- Meme 1 -->
+        <article class="meme-card">
+            <img class="meme-image" src="https://picsum.photos/400/400?random=1" alt="Meme 1">
+            <p class="meme-caption">When your code works on the first try without any errors.</p>
+        </article>
+
+        <!-- Meme 2 -->
+        <article class="meme-card">
+            <img class="meme-image" src="https://picsum.photos/400/500?random=2" alt="Meme 2">
+            <p class="meme-caption">Me explaining to my dog why I can't stay home all day.</p>
+        </article>
+
+        <!-- Meme 3 -->
+        <article class="meme-card">
+            <img class="meme-image" src="https://picsum.photos/400/350?random=3" alt="Meme 3">
+            <p class="meme-caption">Fixing a bug in production at 4:59 PM on a Friday.</p>
+        </article>
+    </main>
+
+</body>
+</html>
