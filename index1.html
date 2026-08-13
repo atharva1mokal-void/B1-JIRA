@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #0f172a; color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+
+    <div style="background-color: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); width: 100%; max-width: 400px; text-align: center;">
+        
+        <h2 style="color: #38bdf8; margin-bottom: 20px;">Palindrome Checker</h2>
+        
+        <input type="text" id="userInput" placeholder="Enter a word or phrase..." 
+            style="width: 100%; padding: 12px; border: 2px solid #334155; border-radius: 6px; background-color: #0f172a; color: #ffffff; font-size: 16px; box-sizing: border-box; margin-bottom: 15px; outline: none;">
+        
+        <button onclick="checkPalindrome()" 
+            style="width: 100%; padding: 12px; background-color: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s;">
+            Check
+        </button>
+
+        <div id="result" style="margin-top: 20px; font-size: 18px; font-weight: bold; min-height: 24px;"></div>
+
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            const inputField = document.getElementById("userInput");
+            const resultDiv = document.getElementById("result");
+            const rawText = inputField.value;
+
+            // Remove non-alphanumeric characters and convert to lowercase
+            const cleanedText = rawText.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+            if (cleanedText === "") {
+                resultDiv.style.color = "#f1f5f9";
+                resultDiv.textContent = "Please enter something first!";
+                return;
+            }
+
+            const reversedText = cleanedText.split("").reverse().join("");
+
+            if (cleanedText === reversedText) {
+                resultDiv.style.color = "#4ade80"; // Green for success
+                resultDiv.textContent = `"${rawText}" is a palindrome!`;
+            } else {
+                resultDiv.style.color = "#f87171"; // Red for failure
+                resultDiv.textContent = `"${rawText}" is NOT a palindrome.`;
+            }
+        }
+    </script>
+
+</body>
+</html>
